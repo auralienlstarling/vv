@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roofy G — Egypt Rooftop Farming</title>
+  <meta name="description"
+    content="Roofy G: Egypt-focused rooftop farming starter. Owners get 20% profit, suppliers 10% yield, volunteer teams per neighborhood." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <img src="roofy.jpg" alt="Roofy G logo" class="logo" />
+    <h1 class="brand">Roofy G</h1>
+    <nav class="nav">
+      <button class="nav-btn" data-target="home">Home</button>
+      <button class="nav-btn" data-target="owners">Owners</button>
+      <button class="nav-btn" data-target="volunteers">Volunteers</button>
+      <button class="nav-btn" data-target="suppliers">Suppliers</button>
+      <button class="nav-btn" data-target="plants">Plant Guide</button>
+      <button class="nav-btn" data-target="economics">Economics</button>
+      <button class="nav-btn" data-target="inbox">Contact</button>
+      <button class="nav-btn" data-target="about">About</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="view active">
+      <h2>Welcome</h2>
+      <p class="lead">
+        We turn Egypts empty rooftops into productive farms. Edible crops only (flowers = optional accessories).
+        Rooftop owners pay nothing and receive <strong>20% of product profit</strong>. Suppliers who donate inputs
+        receive
+        <strong>10% of monthly yield</strong>. Each neighborhood forms a volunteer team with kid-friendly events.
+      </p>
+      <div class="panel row">
+        <button id="checkSupportBtn" class="btn primary">Run Browser Check</button>
+        <span id="supportResult" class="status" aria-live="polite"></span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Why it helps Egypt</h3>
+          <ul class="bullets">
+            <li>Cooler buildings (less AC use).</li>
+            <li>Local jobs & training near home.</li>
+            <li>Less pressure on food imports (keep dollars inside Egypt).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Your Share</h3>
+          <p>Owners: <strong>20%</strong> of net profit per rooftop.</p>
+          <p>Supplier pool: <strong>10%</strong> of monthly yield value.</p>
+          <p>Ops/Workers: remaining after supplier pool.</p>
+        </div>
+        <div class="card">
+          <h3>Quick Links</h3>
+          <div class="row wrap">
+            <a class="chip" href="#owners" onclick="location.hash='owners'">Become an Owner</a>
+            <a class="chip" href="#suppliers" onclick="location.hash='suppliers'">Join as Supplier</a>
+            <a class="chip" href="#volunteers" onclick="location.hash='volunteers'">Volunteer</a>
+            <a class="chip" href="#economics" onclick="location.hash='economics'">Revenue Split</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OWNERS -->
+    <section id="owners" class="view">
+      <h2>Rooftop Owners — Join for Free</h2>
+      <p>We design, grow, and sell. You get <strong>20% of profit</strong>. Edible crops only (flowers allowed as
+        accessories, not main crop).</p>
+      <form id="ownerForm" class="panel form-grid">
+        <label>Owner Name <input type="text" id="ownerName" required /></label>
+        <label>Phone <input type="tel" id="ownerPhone" required /></label>
+        <label>City
+          <select id="ownerCity" required>
+            <option value="Cairo">Cairo</option>
+            <option value="Giza">Giza</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Port Said">Port Said</option>
+            <option value="Luxor">Luxor</option>
+            <option value="Aswan">Aswan</option>
+          </select>
+        </label>
+        <label>Rooftop Size (m²) <input type="number" id="roofSize" min="10" step="1" required /></label>
+        <label>Main Crop Focus
+          <select id="cropFocus" required>
+            <option value="Leafy Greens">Leafy Greens</option>
+            <option value="Tomato/Peppers">Tomato/Peppers</option>
+            <option value="Herbs">Herbs</option>
+            <option value="Okra/Molokhia">Okra/Molokhia</option>
+            <option value="Strawberry (seasonal)">Strawberry (seasonal)</option>
+          </select>
+        </label>
+        <label>Accessory Flowers (optional)
+          <input type="text" id="flowers" placeholder="e.g., marigold borders" />
+        </label>
+        <button class="btn primary" type="submit">Request Free Setup</button>
+      </form>
+      <div id="ownerResult" class="result"></div>
+      <form id="ownerForm" action="https://formspree.io/f/xyzpqwdp" method="POST" class="panel form-grid">
+        <!-- your fields here -->
+        <button class="btn primary" type="submit">Request Free Setup</button>
+      </form>
+    </section>
+
+    <!-- VOLUNTEERS -->
+    <section id="volunteers" class="view">
+      <h2>Volunteer Teams — Neighborhood & Kids</h2>
+      <p>Every neighborhood has a volunteer team. We run child-friendly planting days and regular maintenance schedules.
+      </p>
+      <form id="volForm" class="panel form-grid">
+        <label>Your Name <input type="text" id="volName" required /></label>
+        <label>Phone <input type="tel" id="volPhone" required /></label>
+        <label>Neighborhood/Area <input type="text" id="volArea" placeholder="e.g., Nasr City, Zamalek"
+            required /></label>
+        <label>Age Group
+          <select id="volGroup">
+            <option>Adult</option>
+            <option>Teen (13–17)</option>
+            <option>Child (with guardian)</option>
+          </select>
+        </label>
+        <label>Preferred Role
+          <select id="volRole">
+            <option>Planting events</option>
+            <option>Maintenance schedule</option>
+            <option>Education for kids</option>
+            <option>Harvest & packing</option>
+          </select>
+        </label>
+        <label>Next Available Date <input type="date" id="volDate" required /></label>
+        <button class="btn primary" type="submit">Join Volunteer Team</button>
+      </form>
+      <div class="panel">
+        <h3>Upcoming Volunteer Events</h3>
+        <ul id="eventList" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- SUPPLIERS -->
+    <section id="suppliers" class="view">
+      <h2>Suppliers — 10% Monthly Yield</h2>
+      <p>Donate inputs (seeds, media, nutrients, tools) and receive <strong>10% of monthly yield value</strong> across
+        your supported rooftops.</p>
+      <form id="supForm" class="panel form-grid">
+        <label>Company Name <input type="text" id="supName" required /></label>
+        <label>Contact Email <input type="email" id="supEmail" required /></label>
+        <label>City
+          <select id="supCity">
+            <option value="Cairo">Cairo</option>
+            <option value="Giza">Giza</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Port Said">Port Said</option>
+            <option value="Nationwide">Nationwide</option>
+          </select>
+        </label>
+        <label>Category
+          <select id="supCat">
+            <option>Seeds</option>
+            <option>Nursery</option>
+            <option>Hydroponics/Systems</option>
+            <option>Organic/Bio</option>
+            <option>Urban Greening</option>
+          </select>
+        </label>
+        <label>What you can supply (free) <input type="text" id="supOffer" placeholder="e.g., 1000 seed packs/month"
+            required /></label>
+        <button class="btn primary" type="submit">Offer to Supply</button>
+      </form>
+
+      <div class="panel">
+        <h3>Known Egypt Suppliers (Examples)</h3>
+        <div class="form-grid slim">
+          <label>Filter Category
+            <select id="catFilter">
+              <option value="all" selected>All</option>
+              <option value="Seeds">Seeds</option>
+              <option value="Nursery">Nursery</option>
+              <option value="Hydroponics/Systems">Hydroponics/Systems</option>
+              <option value="Organic/Bio">Organic/Bio</option>
+              <option value="Urban Greening">Urban Greening</option>
+            </select>
+          </label>
+          <label>City
+            <select id="cityFilter">
+              <option value="all" selected>All</option>
+              <option value="Cairo">Cairo</option>
+              <option value="Giza">Giza</option>
+              <option value="Alexandria">Alexandria</option>
+              <option value="Nationwide">Nationwide</option>
+            </select>
+          </label>
+          <input id="searchInput" class="search" type="search" placeholder="Search supplier…" />
+        </div>
+        <div id="supplierList" class="cards"></div>
+      </div>
+    </section>
+
+    <!-- PLANT GUIDE -->
+    <section id="plants" class="view">
+      <h2>Egypt Plant Guide — Climate & Season</h2>
+      <p>Select city & month to get suggestions for rooftop-friendly edible crops.</p>
+      <form id="plantForm" class="panel form-grid">
+        <label>City
+          <select id="city">
+            <option value="cairo" selected>Cairo</option>
+            <option value="giza">Giza</option>
+            <option value="alexandria">Alexandria (coastal)</option>
+            <option value="port-said">Port Said (coastal)</option>
+            <option value="luxor">Luxor (Upper Egypt)</option>
+            <option value="aswan">Aswan (Upper Egypt)</option>
+          </select>
+        </label>
+        <label>Month
+          <select id="month"></select>
+        </label>
+        <button class="btn primary" type="submit">Suggest Plants</button>
+      </form>
+      <div id="plantResults" class="results"></div>
+    </section>
+
+    <!-- ECONOMICS -->
+    <section id="economics" class="view">
+      <h2>Economics — Prices & Revenue Split</h2>
+      <p>Use Egypt-friendly sample prices (EGP). Edit any value to match real deals.</p>
+      <form id="ecoForm" class="panel form-grid">
+        <label>Crop
+          <select id="ecoCrop">
+            <option value="Tomato">Tomato (kg)</option>
+            <option value="Pepper">Pepper (kg)</option>
+            <option value="Lettuce">Lettuce (kg)</option>
+            <option value="Herbs">Herbs (bundle)</option>
+            <option value="Okra">Okra (kg)</option>
+            <option value="Strawberry">Strawberry (kg)</option>
+          </select>
+        </label>
+        <label>Expected Monthly Yield <input type="number" id="ecoYield" value="120" min="1" /></label>
+        <label>Expected Price (EGP) <input type="number" id="ecoPrice" value="35" min="1" /></label>
+        <label>Supplier Count (sharing 10%) <input type="number" id="ecoSuppliers" value="2" min="0" /></label>
+        <button class="btn primary" type="submit">Calculate Split</button>
+      </form>
+      <div id="ecoResult" class="result"></div>
+    </section>
+
+    <!-- CONTACT / INBOX -->
+    <section id="inbox" class="view">
+      <h2>Contact & Messages</h2>
+      <form id="msgForm" class="panel form-grid">
+        <label>Your Name <input type="text" id="msgName" required /></label>
+        <label>Role
+          <select id="msgRole">
+            <option>Owner</option>
+            <option>Volunteer</option>
+            <option>Supplier</option>
+            <option>Customer</option>
+            <option>Investor</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea id="msgText" rows="3" placeholder="How can we help?" required></textarea>
+        </label>
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+      <div class="panel">
+        <h3>Inbox (stored on your browser)</h3>
+        <ul id="msgList" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="view">
+      <h2>About Roofy G</h2>
+      <ul class="bullets">
+        <li>Egypt focus: Cairo, Giza, Alexandria.</li>
+        <li>Owners get 20% of rooftop farm profit; no upfront cost.</li>
+        <li>Suppliers donate inputs and receive 10% of monthly yield value.</li>
+        <li>Neighborhood volunteer teams with children’s planting days & maintenance schedules.</li>
+        <li>Goal: reduce food import pressure, create local jobs, and cool buildings.</li>
+      </ul>
+      <p class="small">Tip: connect Open-Meteo (weather) or Google Sheets later — structure is ready.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 Roofy G • Egypt Rooftops</small>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>
